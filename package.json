@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/VanessaLin9/GHrecord-P05#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "express-handlebars": "^3.0.0"
   }
 }
