@@ -1,0 +1,25 @@
+{
+  "name": "GHrecord-P05",
+  "version": "1.0.0",
+  "description": "遊戲紀錄小程式",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VanessaLin9/GHrecord-P05.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VanessaLin9/GHrecord-P05/issues"
+  },
+  "homepage": "https://github.com/VanessaLin9/GHrecord-P05#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
