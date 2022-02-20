@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 
 const PORT = 3000
+const bcrypt = require('bcryptjs')
 
 const exphbs = require('express-handlebars')
 

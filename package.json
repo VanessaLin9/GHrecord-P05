@@ -22,6 +22,9 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.2",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.16.2",
+    "sequelize-cli": "^6.4.1"
   }
 }
