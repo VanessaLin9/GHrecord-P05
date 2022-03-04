@@ -1,0 +1,10 @@
+.banner {
+  position: relative;
+  z-index: -1;
+  margin: -5px;
+  height: 360px;
+  background: #dddddd center center url("https://assets.dicebreaker.com/gloomhaven-board-game-box-artwork.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/gloomhaven-board-game-box-artwork.jpg");
+  background-size: cover;
+  filter: blur(3px);
+}
+
