@@ -1,80 +1,142 @@
-<div class="container d-flex justify-content-center">
-  <form action="" class="mt-5">
-    {{!-- 參與者 --}}
-    <div class="d-flex mt-5 justify-content-between">
-      <div class="mr-2">參與者</div>
-      <div class="d-flex flex-wrap">
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">1</label>
-        </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">2</label>
-        </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">3</label>
-        </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">4</label>
-        </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">5</label>
-        </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">6</label>
-        </div>
-      </div>
-    </div>
-
-    {{!-- 關主選擇 --}}
-    <div class="d-flex mt-5 justify-content-between">
-      <div class="mr-2 d-flex align-items-center">關主選擇</div>
-      <div class="mr-2 ">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-              隨機抽籤
-            </label>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-8 col-md-10 col-12 mx-auto">
+      <form action="">
+        {{!-- 日期 --}}
+        <div class="row mt-5">
+          <div class="col-4 d-flex align-items-center">
+            <h5>日期</h5>
           </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-          <label class="form-check-label" for="exampleRadios2">
-            指定關主
-          </label>
+          <div class="col-8">
+            {{!-- 日期選單 --}}
+          </div>
         </div>
-      </div>
-      <div class="d-flex flex-wrap">
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">1</label>
+
+        {{!-- 關卡選擇 --}}
+        <div class="row mt-5">
+          <div class="col-4 d-flex align-items-center">
+            <h5>關卡</h5>
+          </div>
+          <div class="col-8">
+            <label for="exampleFormControlSelect1">Example select</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
         </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">2</label>
+
+        {{!-- 參與者 --}}
+        <div class="row mt-5">
+          <div class="col-4 d-flex align-items-center">
+            <h5>參與者</h5>
+          </div>
+
+          <div class="col-8 participant">
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">5</label>
+            </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">6</label>
+            </div>
+          </div>
         </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">3</label>
+
+        {{!-- 關主選擇 --}}
+        <div class="row mt-5">
+          <div class="col-4 d-flex align-items-center">
+              <h5>關主選擇</h5>
+          </div>
+
+          <div class="col-4">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                隨機抽籤
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+                指定關主
+              </label>
+            </div>
+          </div>
+
+          <div class="col-4 participant">
+            <div class="text-center"><指定></div>
+            {{!-- 自動讀取參與者名單 --}}
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">1</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">2</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">3</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">4</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">5</label>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">4</label>
+
+        {{!-- 確認按鈕 --}}
+        <div class="row mt-5">
+          <div class="col-2 mx-auto">
+            <button type="submit" class="btn btn-dark">確認</button>
+          </div>
         </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">5</label>
-        </div>
-      </div>
+      
+      </form>
+
+      {{!-- 近三期紀錄 --}}
+      <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">日期</th>
+            <th scope="col">關卡</th>
+            <th scope="col">關主</th>
+            <th scope="col">玩家</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr></tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="d-flex justify-content-center mt-5">
-      <button type="submit" class="btn btn-dark">確認</button>
-    </div>
-    
-  </form>
+  </div>
+  
 </div>

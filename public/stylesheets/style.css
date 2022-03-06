@@ -8,3 +8,6 @@
   filter: blur(3px);
 }
 
+.participant {
+  border:black solid 1px;
+}
