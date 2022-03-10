@@ -11,6 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Record.belongsTo(models.Player)
+      Record.belongsTo(models.Scenario)
+      // many to many
+      Record.belongsToMany(models.Player, {
+        through: models.Participant,
+        foreignKey: 'recordId',
+        as: 'ParticipantPlayers'
+      })
     }
   }
   Record.init({
