@@ -15,10 +15,10 @@
 <nav class="navbar navbar-light ">
   <div class="container justify-content-between">
     <a class="navbar-brand" href="/" ><i class="fas fa-ghost"></i>  SEX CT</a>
-    {{#if isAuthenticated}}
-      <a href="/users/logout"class="navbar-brand">登出 <i class="fas fa-sign-out-alt"></i></a>
+    {{#if user}}
+      <a href="/logout"class="navbar-brand">登出 <i class="fas fa-sign-out-alt"></i></a>
       {{else}}
-      <a href="/users/login" class="navbar-brand">登入 <i class="fas fa-sign-in-alt"></i></a>
+      <a href="/signin" class="navbar-brand">登入 <i class="fas fa-sign-in-alt"></i></a>
       {{/if}}
   </div>
 </nav>

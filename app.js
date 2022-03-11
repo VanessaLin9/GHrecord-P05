@@ -6,6 +6,7 @@ const routes = require('./routes')
 const app = express()
 const methodOverride = require('method-override')
 const passport = require('./config/passport')
+const { getUser } = require('./helpers/auth-helpers')
 const SESSION_SECRET = 'secret'
 
 const PORT = process.env.PORT || 3000
@@ -25,8 +26,9 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash()) // 掛載套件
 app.use((req, res, next) => {
-  res.locals.success_messages = req.flash('success_messages')  // 設定 success_msg 訊息
-  res.locals.error_messages = req.flash('error_messages')  // 設定 warning_msg 訊息
+  res.locals.success_messages = req.flash('success_messages') 
+  res.locals.error_messages = req.flash('error_messages') 
+  res.locals.user = getUser(req)
   next()
 })
 app.use(routes)
