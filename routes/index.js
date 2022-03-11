@@ -7,14 +7,15 @@ const userController = require('../controllers/user_controller')
 const { authenticated } = require('../middleware/auth')
 const { generalErrorHandler } = require('../middleware/error-handler')
 
-router.get('/signup', userController.signUpPage)
-router.post('/signup', userController.signUp)
+// router.get('/signup', userController.signUpPage)
+// router.post('/signup', userController.signUp)
 
 router.get('/signin', userController.signInPage)
 router.post('/signin', passport.authenticate('local', { failureRedirect: '/signin', failureFlash: true }), userController.signIn)
 router.get('/logout', userController.logout)
 
 router.get('/host', authenticated, recordController.getHomePage)
+router.post('/host', recordController.addRecord)
 router.get('/', (req, res) => res.redirect('/host'))
 router.use('/', generalErrorHandler)
 
