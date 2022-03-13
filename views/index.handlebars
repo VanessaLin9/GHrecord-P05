@@ -10,7 +10,7 @@
           </div>
           <div class="col-8">
             <input type="date"  min="2021-01-01"
-          max="2028-12-30" name="date" id="date" required>
+          max="2028-12-30" name="date" id="date" value={{today}} required>
           </div>
         </div>
 
@@ -38,8 +38,8 @@
           </div>
           <div class="col-8 participant" id="participant">
             {{#each players}}
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox{{this.id}}" value="{{this.id}}">
+            <div class="form-check form-check-inline ml-1">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox{{this.id}}" value="{{this.id}}" >
               <label class="form-check-label" for="inlineCheckbox{{this.id}}">{{this.name}}</label>
             </div>
             {{/each}}
@@ -85,7 +85,10 @@
         {{!-- 確認按鈕 --}}
         <div class="row mt-5">
           <div class="col-2 mx-auto">
-            <button class="btn btn-dark" id="btn">確認</button>
+            <div class="btn btn-secondary" id="btn">產生關主</div>
+          </div>
+          <div class="col-2 ">
+            <button class="btn btn-dark disappear" type="submit" id="confirm">確認紀錄</button>
           </div>
         </div>
       
@@ -117,15 +120,18 @@
   const createHostBy = document.getElementById("createHostBy")
   const btn = document.getElementById('btn')
   const showHost = document.getElementById('showHost')
+  const confirm = document.getElementById('confirm')
   let drawBox = []
 
+
+{{!-- 點選參加者 --}}
   participant.addEventListener("click", function check(event) {
     let parent = event.target.parentElement
     let pickBox = parent.firstElementChild
     let pickName = parent.lastElementChild
     let item = parent.cloneNode(true)
-
-    if (parent.firstElementChild.disabled) {
+    if (event.target.type === 'checkbox') {
+      if (parent.firstElementChild.disabled) {
       return
     } else {
       console.log('加人')
@@ -134,30 +140,39 @@
       let Id = Number(pickBox.value)
       let name = pickName.innerText
       drawBox.push({id:Id, name:name})
-      {{!-- item.firstElementChild.style.display = none --}}
+      let firstChild = item.firstElementChild
+      firstChild.classList.add('disappear')
+      item.classList.remove('form-check-inline')
+      let trash = document.createElement('i')
+      trash.className="fas fa-minus-circle"
+      item.insertBefore(trash, firstChild)
       drawHost.appendChild(item)
-    }
+    }}
   })
 
+{{!-- 待選Host區塊 --}}
+  drawHost.addEventListener("click", function(event) {
+    console.log('移除')
+    drawHost.removeChild(event.target.parentElement) 
+    let removeParticipant = event.target
+    console.log('==>', removeParticipant)
+    console.log(drawBox)
+    console.log(drawBox.indexOf('2'))
+  })
+
+{{!-- 按鈕區域 --}}
   btn.addEventListener("click", function check (event) {
     let boxLength = drawBox.length
     let host = Math.floor(Math.random()*boxLength)
     let hostName = drawBox[host].name
     let show = document.createElement('div')
+    show.className = "col-12 showHostDiv"
     let rowHTML = ''
     rowHTML+= `
-    <h4>關主: ${drawBox[host].name} </h4>
+    <h4 class="text-center font-weight-bold">關主: ${drawBox[host].name} </h4>
     `
     show.innerHTML = rowHTML
     showHost.append(show)
+    confirm.classList.remove('disappear')
   })
-
-drawHost.addEventListener("click", function(event) {
-  console.log('移除')
-  drawHost.removeChild(event.target.parentElement) 
-  let removeParticipant = event.target
-  console.log('==>', removeParticipant)
-  console.log(drawBox)
-  console.log(drawBox.indexOf('2'))
-})
 </script>

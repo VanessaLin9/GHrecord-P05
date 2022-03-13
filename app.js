@@ -13,9 +13,8 @@ const PORT = process.env.PORT || 3000
 const bcrypt = require('bcryptjs')
 
 
-
 app.use(express.static('public'))
-app.engine('handlebars', exphbs({defaultLayout: 'main'}))
+app.engine('handlebars', exphbs({defaultLayout: 'main', helpers: require('./helpers/handlebars-helpers')}))
 app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true })) //使用express內建的body-parser
 app.use(methodOverride('_method'))

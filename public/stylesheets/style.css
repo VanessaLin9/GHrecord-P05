@@ -10,5 +10,15 @@
 
 .participant {
   border:black solid 1px;
+  padding: 10px 5px;
 }
 
+.disappear {
+  display: none;
+}
+
+.showHostDiv {
+background-color: chocolate;
+padding: 4px;
+color: #dddddd;
+}
