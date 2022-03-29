@@ -21,7 +21,7 @@
           </div>
           <div class="col-8">
             {{!-- <label for="exampleFormControlSelect1">Example select</label> --}}
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" id="scenarioId" name="scenarioId">
               {{#each scenarios}}
               <option value="{{this.id}}">{{this.name}}</option>
               {{/each}}
@@ -73,6 +73,7 @@
             <div id="drawHost">
              {{!-- 自動讀取參與者名單 --}}
             </div>
+          <input type="hidden" id="hostId" name="hostId" value="">  
           </div>
         </div>
 
@@ -119,6 +120,7 @@
   const btn = document.getElementById('btn')
   const showHost = document.getElementById('showHost')
   const confirm = document.getElementById('confirm')
+  const hostId = document.getElementById('hostId')
   let drawBox = []
 
 
@@ -172,5 +174,6 @@
     show.innerHTML = rowHTML
     showHost.append(show)
     confirm.classList.remove('disappear')
+    hostId.value = drawBox[host].id
   })
 </script>
