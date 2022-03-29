@@ -20,13 +20,11 @@
             <h5>關卡</h5>
           </div>
           <div class="col-8">
-            <label for="exampleFormControlSelect1">Example select</label>
+            {{!-- <label for="exampleFormControlSelect1">Example select</label> --}}
             <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              {{#each scenarios}}
+              <option value="{{this.id}}">{{this.name}}</option>
+              {{/each}}
             </select>
           </div>
         </div>
