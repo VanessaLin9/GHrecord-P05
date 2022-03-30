@@ -13,7 +13,9 @@ const recordController = {
     })
   },
   addRecord: (req, res) => {
-    return res.render('index')
+    console.log('post!')
+    console.log(req.body)
+    return res.redirect('/host')
   }
 }
 module.exports = recordController
