@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Player.hasMany(models.Record)
+      Player.hasMany(models.Record, { foreignKey: 'PlayerId' })
       // many to many
       Player.belongsToMany(models.Record, {
         through: models.Participant,

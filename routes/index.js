@@ -8,8 +8,8 @@ const { authenticated } = require('../middleware/auth')
 const { generalErrorHandler } = require('../middleware/error-handler')
 
 // 註冊帳號
-// router.get('/signup', userController.signUpPage)
-// router.post('/signup', userController.signUp)
+router.get('/signup', userController.signUpPage)
+router.post('/signup', userController.signUp)
 
 // 登入登出
 router.get('/signin', userController.signInPage)
