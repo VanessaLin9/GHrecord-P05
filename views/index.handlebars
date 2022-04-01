@@ -42,6 +42,7 @@
             </div>
             {{/each}}
           </div>
+          <input type="hidden" id="participants" name="participants" value="">
         </div>
 
         {{!-- 關主選擇 --}}
@@ -116,6 +117,7 @@
 
 <script>
   const participant = document.getElementById("participant")
+  const participantId = document.getElementById("participants")
   const drawHost = document.getElementById("drawHost")
   const createHostBy = document.getElementById("createHostBy")
   const btn = document.getElementById('btn')
@@ -123,6 +125,7 @@
   const confirm = document.getElementById('confirm')
   const hostId = document.getElementById('hostId')
   let drawBox = []
+  let participantBox = []
 
 
 {{!-- 點選參加者 --}}
@@ -141,6 +144,7 @@
       let Id = Number(pickBox.value)
       let name = pickName.innerText
       drawBox.push({id:Id, name:name})
+      participantBox.push(Id)
       let firstChild = item.firstElementChild
       firstChild.classList.add('disappear')
       item.classList.remove('form-check-inline')
@@ -180,7 +184,9 @@
     `
     show.innerHTML = rowHTML
     showHost.append(show)
-    confirm.classList.remove('disappear')
+    let participants = participantBox.join(',')
+    participantId.value = participants
     hostId.value = drawBox[host].id
+    confirm.classList.remove('disappear')
   })
 </script>
