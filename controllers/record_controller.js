@@ -7,16 +7,21 @@ const recordController = {
   getHomePage: (req, res, next) => {
     return Promise.all([
       Player.findAll({raw:true}),
-      Scenario.findAll({raw:true})
+      Scenario.findAll({raw:true}),
+      Record.findAll({
+        attributes: ['id','date', 'createdAt', 'playerId', 'ScenarioId'],
+        limit: 3,
+        order: [['createdAt', 'DESC']],
+        raw:true, nest:true
+      })
     ])
-    .then(([players, scenarios]) => {
-       res.render('index', {players, scenarios})
+    .then(([players, scenarios, records]) => {
+       res.render('index', {players, scenarios, records})
     })
+    .catch(err=>{ console.log(err)})
   },
   addRecord: (req, res) => {
     console.log('post!')
-    console.log(req.body)
-    console.log(req.body.hostId)
     let participant = req.body.participants
     let participantList = participant.split(',')
     console.log(participantList)

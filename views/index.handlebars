@@ -96,17 +96,24 @@
       </form>
 
       {{!-- 近三期紀錄 --}}
-      <table class="table mt-5">
+      <h5 class="mt-5 text-center"><最近遊戲紀錄></h5>
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">日期</th>
             <th scope="col">關卡</th>
             <th scope="col">關主</th>
-            <th scope="col">玩家</th>
+            {{!-- <th scope="col">玩家</th> --}}
           </tr>
         </thead>
         <tbody>
-          <tr></tr>
+        {{#each records}}
+          <tr>
+            <td>{{date this.date}}</td>
+            <td>{{this.ScenarioId}}</td>
+            <td>{{this.playerId}}</td>
+          </tr>
+        {{/each}}
         </tbody>
       </table>
     </div>
