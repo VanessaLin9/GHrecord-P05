@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       // many to many
       Player.belongsToMany(models.Record, {
         through: models.Participant,
-        foreignKey: 'playerId',
+        foreignKey: 'player_id',
         as: 'ParticipantRecords'
       })
     }

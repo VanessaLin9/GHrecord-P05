@@ -12,6 +12,7 @@ const recordController = {
         attributes: ['id','date', 'createdAt', 'playerId', 'ScenarioId'],
         limit: 3,
         order: [['createdAt', 'DESC']],
+        include: [Player],
         raw:true, nest:true
       })
     ])

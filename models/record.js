@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Record.belongsTo(models.Player, { foreignKey: 'RecordId' })
-      Record.belongsTo(models.Scenario, { foreignKey: 'RecordId' })
+      Record.belongsTo(models.Player)
+      Record.belongsTo(models.Scenario)
       // many to many
       Record.belongsToMany(models.Player, {
         through: models.Participant,
-        foreignKey: 'recordId',
+        foreignKey: 'record_id',
         as: 'ParticipantPlayers'
       })
     }
