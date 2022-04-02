@@ -17,7 +17,15 @@ const recordController = {
       })
     ])
     .then(([players, scenarios, records]) => {
-       res.render('index', {players, scenarios, records})
+      
+      const recentRecord = records.map(record => ({
+        id:record.id,
+        date: record.date,
+        hostName: record.Player.name,
+        scenarioName: record.Scenario.name,
+      }))
+     
+       res.render('index', {players, scenarios, recentRecord})
     })
     .catch(err=>{ console.log(err)})
   },

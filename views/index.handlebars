@@ -107,11 +107,11 @@
           </tr>
         </thead>
         <tbody>
-        {{#each records}}
+        {{#each recentRecord}}
           <tr>
             <td>{{date this.date}}</td>
-            <td>{{this.Scenario.name}}</td>
-            <td>{{this.Player.name}}</td>
+            <td>{{this.scenarioName}}</td>
+            <td>{{this.hostName}}</td>
           </tr>
         {{/each}}
         </tbody>
