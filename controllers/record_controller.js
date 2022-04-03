@@ -6,8 +6,12 @@ const Record = db.Record
 const recordController = {
   getHomePage: (req, res, next) => {
     return Promise.all([
-      Player.findAll({raw:true}),
-      Scenario.findAll({raw:true}),
+      Player.findAll({
+        attributes: ['id', 'name'],
+        raw:true}),
+      Scenario.findAll({
+        attributes: ['id', 'name'],
+        raw:true}),
       Record.findAll({
         attributes: ['id','date', 'createdAt', 'playerId', 'ScenarioId'],
         limit: 3,
@@ -17,7 +21,7 @@ const recordController = {
       })
     ])
     .then(([players, scenarios, records]) => {
-      
+     
       const recentRecord = records.map(record => ({
         id:record.id,
         date: record.date,
