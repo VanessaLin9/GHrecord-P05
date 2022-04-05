@@ -16,6 +16,9 @@ router.get('/signin', userController.signInPage)
 router.post('/signin', passport.authenticate('local', { failureRedirect: '/signin', failureFlash: true }), userController.signIn)
 router.get('/logout', userController.logout)
 
+// 遊戲紀錄分頁
+router.get('/records', authenticated,recordController.getRecordPage)
+
 // 首頁
 router.get('/host', authenticated, recordController.getHomePage)
 router.post('/host', recordController.addRecord)

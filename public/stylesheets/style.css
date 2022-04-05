@@ -22,3 +22,30 @@ background-color: chocolate;
 padding: 4px;
 color: #dddddd;
 }
+
+.pageList {
+  position: relative;
+  top: -22px;
+  left: -25px;
+}
+
+.paging {
+ color: white;
+ padding: 10px;
+ opacity: 0.5;
+}
+.paging:hover {
+ color: white;
+ text-decoration: none;
+}
+.otherPage:hover {
+  color: #ff6600;
+  opacity: 0.9;
+}
+
+.thisPage {
+  border-left: 1px white solid;
+  border-right: 1px white solid;
+  border-top: 1px white solid;
+  border-radius: 10%;
+}

@@ -56,6 +56,9 @@ const recordController = {
     .catch(err => {
       console.log(err)
     }) 
+  },
+  getRecordPage: (req,res) => {
+    res.render('record')
   }
 }
 module.exports = recordController
