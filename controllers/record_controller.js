@@ -2,6 +2,7 @@ const db = require('../models')
 const Player = db.Player
 const Scenario = db.Scenario
 const Record = db.Record
+const Participant = db.Participant
 
 const recordController = {
   getHomePage: (req, res, next) => {
@@ -45,8 +46,13 @@ const recordController = {
     })
     .then((record) =>{
       console.log(record.id)
-      res.redirect('/host')
+      let newList = participantList.map(participant=> ({
+        player_id: participant,
+        record_id: record.id
+      }))
+      return Participant.bulkCreate(newList)
     })
+    .then(res.redirect('/host'))
     .catch(err => {
       console.log(err)
     }) 
