@@ -6,7 +6,27 @@
         <a class="otherPage paging mr-3" href="/">抽新關主</a>
         <a class="thisPage paging mr-3">歷史遊戲紀錄</a>
       </div>
-      records !
+        <table class="table mt-5">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col" >日期</th>
+              <th scope="col" >關卡</th>
+              <th scope="col" class="text-center">關主</th>
+              {{!-- <th scope="col">參與者</th> --}}
+              <th scope="col" class="text-center">刪除紀錄</th>
+            </tr>
+          </thead>
+          <tbody>
+          {{#each records}}
+            <tr>
+              <td>{{date this.date}}</td>
+              <td>{{this.Scenario.name}}</td>
+              <td class="text-center">{{this.Player.name}}</td>
+              <td class="text-center"><form action="/records/{{this.id}}?_method=DELETE" method="POST"><button type="submit"><i class="fas fa-trash-alt"></i></button></form></td>
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
     </div>
   </div>
 </div>

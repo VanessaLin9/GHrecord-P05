@@ -18,6 +18,7 @@ router.get('/logout', userController.logout)
 
 // 遊戲紀錄分頁
 router.get('/records', authenticated,recordController.getRecordPage)
+router.delete('/records/:id', authenticated, recordController.deleteRecord)
 
 // 首頁
 router.get('/host', authenticated, recordController.getHomePage)

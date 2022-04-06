@@ -57,7 +57,24 @@ const recordController = {
       console.log(err)
     }) 
   },
-  getRecordPage: (req,res) => {
+  getRecordPage:  async(req,res) => {
+    try {
+      await Record.findAll({
+        attributes: ['id','date', 'createdAt', 'playerId', 'ScenarioId'],
+        order: [['createdAt', 'DESC']],
+        include: [Player, Scenario],
+        raw:true, nest:true
+      })
+      .then(records => {
+        res.render('record', {records})
+      })
+    } catch (error) {
+      console.log(error)
+      res.render('record', { Error })
+    }
+  },
+  deleteRecord: (req, res) => {
+    console.log('delete')
     res.render('record')
   }
 }
