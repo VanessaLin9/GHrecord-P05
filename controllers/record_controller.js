@@ -66,7 +66,13 @@ const recordController = {
         raw:true, nest:true
       })
       .then(records => {
-        res.render('record', {records})
+        const recordList = records.map(record => ({
+          id:record.id,
+          date: record.date,
+          hostName: record.Player.name,
+          scenarioName: record.Scenario.name,
+        }))
+        res.render('record', {recordList})
       })
     } catch (error) {
       console.log(error)
@@ -74,8 +80,12 @@ const recordController = {
     }
   },
   deleteRecord: (req, res) => {
-    console.log('delete')
-    res.render('record')
+    console.log(req.params.id)
+    return Record.findByPk(req.params.id)
+    .then((record) => {
+      record.destroy()
+    })
+    .then(res.redirect('/records'))
   }
 }
 module.exports = recordController

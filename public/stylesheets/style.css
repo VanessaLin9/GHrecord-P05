@@ -49,3 +49,10 @@ color: #dddddd;
   border-top: 1px white solid;
   border-radius: 10%;
 }
+
+.bin {
+  color: #999999;
+}
+.bin:hover {
+  color: #ff6600;
+}
