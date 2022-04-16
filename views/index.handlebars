@@ -50,20 +50,20 @@
         </div>
 
         {{!-- 關主選擇 --}}
-        <div class="row mt-5">
+        <div class="row mt-5" id="host">
           <div class="col-4 d-flex align-items-center">
               <h5>關主選擇</h5>
           </div>
 
-          <div class="col-4">
+          <div class="col-4" id="hostPicking">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="hostPicking" id="random" value="random" checked>
+              <input class="form-check-input" type="radio" name="hostPicking" id="random" value="random" >
               <label class="form-check-label" for="random">
                 隨機抽籤
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="hostPicking" id="designate" value="designate" disabled>
+              <input class="form-check-input" type="radio" name="hostPicking" id="designate" value="designate">
               <label class="form-check-label" for="designate" >
                 指定關主
               </label>
@@ -78,6 +78,7 @@
             <div id="drawHost">
              {{!-- 自動讀取參與者名單 --}}
             </div>
+
             {{!-- 回傳中籤關主ID --}}
           <input type="hidden" id="hostId" name="hostId" value="">  
           </div>
@@ -135,6 +136,11 @@
   const showHost = document.getElementById('showHost')
   const confirm = document.getElementById('confirm')
   const hostId = document.getElementById('hostId')
+  const host = document.getElementById('host') 
+
+  const hostPicking = document.getElementById('hostPicking')
+  const random = document.getElementById('random')
+  const designate = document.getElementById('designate')
   let drawBox = []
   let participantBox = []
 
@@ -166,9 +172,33 @@
     }}
   })
 
+{{!-- 關主產生 --}}
+hostPicking.addEventListener("click", function(event) {
+  if (event.target.id === 'designate') {
+    drawHost.innerHTML = ''
+    let show = document.createElement('div')
+    show.id = "designateIt"
+    let candidate = ''
+    drawBox.forEach(function(item, i) {
+      candidate += `
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="candidate" id="exampleRadios${i}" value="${item.id}">
+        <label class="form-check-label" for="exampleRadios${i}">
+          ${item.name}
+        </label>
+      </div>
+      `
+    })
+    show.innerHTML = candidate
+    drawHost.append(show)
+    console.log(show)
+  }
+})
+
 {{!-- 待選Host區塊 --}}
   drawHost.addEventListener("click", function(event) {
-    console.log('移除')
+
+    console.log(hostPicking.value)
     drawHost.removeChild(event.target.parentElement) 
     let removeParticipantId = Number(event.target.parentElement.children[1].value)
     console.log('==>', removeParticipantId)
