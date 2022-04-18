@@ -150,7 +150,8 @@
     let parent = event.target.parentElement
     let pickBox = parent.firstElementChild
     let pickName = parent.lastElementChild
-    let item = parent.cloneNode(true)
+    {{!-- let item = parent.cloneNode(true) --}}
+
     if (event.target.type === 'checkbox') {
       if (parent.firstElementChild.disabled) {
       return
@@ -162,13 +163,14 @@
       let name = pickName.innerText
       drawBox.push({id:Id, name:name})
       participantBox.push(Id)
-      let firstChild = item.firstElementChild
+
+      {{!-- let firstChild = item.firstElementChild
       firstChild.classList.add('disappear')
       item.classList.remove('form-check-inline')
       let trash = document.createElement('i')
       trash.className="fas fa-minus-circle"
       item.insertBefore(trash, firstChild)
-      drawHost.appendChild(item)
+      drawHost.appendChild(item) --}}
     }}
   })
 
@@ -178,12 +180,32 @@ hostPicking.addEventListener("click", function(event) {
     drawHost.innerHTML = ''
     let show = document.createElement('div')
     show.id = "designateIt"
+    show.className= "ml-3"
     let candidate = ''
     drawBox.forEach(function(item, i) {
       candidate += `
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="candidate" id="exampleRadios${i}" value="${item.id}">
-        <label class="form-check-label" for="exampleRadios${i}">
+        <input class="form-check-input" type="radio" name="candidate" id="designate${i}" value="${item.id}">
+        <label class="form-check-label" for="designate${i}">
+          ${item.name}
+        </label>
+      </div>
+      `
+    })
+    show.innerHTML = candidate
+    drawHost.append(show)
+    console.log(show)
+  } else if (event.target.id === 'random') {
+    drawHost.innerHTML = ''
+    let show = document.createElement('div')
+    show.id = "randomIt"
+    let candidate = ''
+    drawBox.forEach(function(item, i) {
+      candidate += `
+      <div class="form-check">
+        <input class="form-check-input disappear" type="checkbox" name="candidate" id="random${i}" value="${item.id}">
+        <i class="fas fa-minus-circle"></i>
+        <label class="form-check-label" for="random${i}">
           ${item.name}
         </label>
       </div>
@@ -197,19 +219,24 @@ hostPicking.addEventListener("click", function(event) {
 
 {{!-- 待選Host區塊 --}}
   drawHost.addEventListener("click", function(event) {
-
-    console.log(hostPicking.value)
-    drawHost.removeChild(event.target.parentElement) 
-    let removeParticipantId = Number(event.target.parentElement.children[1].value)
-    console.log('==>', removeParticipantId)
+    let item = event.target.parentElement
+    let box = item.parentElement
+    let randomIt = document.getElementById('randomIt')
     
-    drawBox.forEach(Object => {
-      if(Object.id === removeParticipantId) {
-        drawBox.splice(drawBox.indexOf(Object),1)
-      }
-    })
+    if (box.id === 'randomIt') {
+      randomIt.removeChild(item) 
+      let removeParticipantId = Number(event.target.parentElement.children[0].value)
+      console.log('==>', removeParticipantId)
+      
+      drawBox.forEach(Object => {
+        if(Object.id === removeParticipantId) {
+          drawBox.splice(drawBox.indexOf(Object),1)
+        }
+      })
+      
+      console.log('剪後',drawBox)
+    }
     
-    console.log('剪後',drawBox)
   })
 
 {{!-- 按鈕區域 --}}
