@@ -174,9 +174,10 @@
     }}
   })
 
-{{!-- 關主產生 --}}
+{{!-- 兩種關主產生方式顯示 --}}
 hostPicking.addEventListener("click", function(event) {
   if (event.target.id === 'designate') {
+    createHostBy.innerHTML = '<指定關主>'
     drawHost.innerHTML = ''
     let show = document.createElement('div')
     show.id = "designateIt"
@@ -194,7 +195,7 @@ hostPicking.addEventListener("click", function(event) {
     })
     show.innerHTML = candidate
     drawHost.append(show)
-    console.log(show)
+    btn.classList.add('disappear')
   } else if (event.target.id === 'random') {
     drawHost.innerHTML = ''
     let show = document.createElement('div')
@@ -213,7 +214,8 @@ hostPicking.addEventListener("click", function(event) {
     })
     show.innerHTML = candidate
     drawHost.append(show)
-    console.log(show)
+    btn.classList.remove('disappear')
+    confirm.classList.add('disappear')
   }
 })
 
@@ -233,8 +235,15 @@ hostPicking.addEventListener("click", function(event) {
           drawBox.splice(drawBox.indexOf(Object),1)
         }
       })
-      
       console.log('剪後',drawBox)
+    } else if ( box.id === 'designateIt' ) {
+      
+      let chooseHostId = Number(item.children[0].value)
+      hostId.value = chooseHostId
+      console.log('id是', hostId)
+      let participants = participantBox.join(',')
+      participantId.value = participants
+      confirm.classList.remove('disappear')
     }
     
   })
