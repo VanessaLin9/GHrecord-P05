@@ -47,6 +47,10 @@ a {
   text-decoration: none;
   /* 拿掉底線 */
 }
+a:hover {
+  color: #fca063;
+  text-decoration: none;
+}
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
   .action {
@@ -55,9 +59,78 @@ a {
   }
 }
 /* ******** header *********** */
-
-
-
+header {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  background: #ffffff;
+  position: fixed;
+  z-index: 999;
+}
+.nav-brand {
+  color: #424141;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 60px;
+}
+.navbar-toggle {
+  visibility: hidden;
+  position: absolute;
+}
+.navbar-toggle:checked ~ .navb {
+ transform: scale(1, 1);
+}
+.navb {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background: #ffffff;
+  opacity: 0.8;
+  transition: transform 0.3s ease-out;
+  transform: scale(1, 0);
+  transform-origin: top;
+}
+.nav-item {
+  margin: 1.4rem 0;
+  opacity: 0;
+}
+.navbar-toggle:checked ~ .navb .nav-item {
+  transition: opacity .2s ease-out 0.15s;
+  opacity: 1;
+}
+.nav-link {
+  color: #424141;
+}
+.navbar-toggle-label {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 7.5%;
+  display: flex;
+  align-items: center;
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 30px;
+  height: 3px;
+  background: #267b98;
+}
+.hamburger::before,
+.hamburger::after {
+  position: absolute;
+  left: 0;
+  content: "";
+} 
+.hamburger {
+  position: relative;
+}
+.hamburger::before {
+  bottom: 8px;
+}
+.hamburger::after {
+  top: 8px;
+}
 /* ********* body ********** */
 .banner {
   position: relative;

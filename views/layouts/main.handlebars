@@ -14,8 +14,10 @@
 <body>
   <header> 
     {{#if user}}
-      <a class="navbar-brand" href="/" ><i class="fas fa-ghost"></i>  {{user.account}}</a>
-      <nav class="navbar">
+      <a class="nav-brand" href="/" ><i class="fas fa-ghost"></i>  {{user.account}}</a>
+      <input type="checkbox" class="navbar-toggle" id="navbar-toggle">
+
+      <nav class="navb">
         <ul class="nav-list">
           <li class="nav-item">
             <a href="/index" class="nav-link">抽新關主</a>
@@ -29,6 +31,9 @@
         </ul>
       </nav>
       
+      <label class="navbar-toggle-label" for="navbar-toggle">
+        <span class="hamburger"></span>
+      </label>
     {{else}}
       <a href="/signin" class="navbar-brand">登入 <i class="fas fa-sign-in-alt"></i></a>
     {{/if}}
