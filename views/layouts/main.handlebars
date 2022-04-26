@@ -12,16 +12,29 @@
 </head>
 
 <body>
-<nav class="navbar navbar-light ">
-  <div class="container justify-content-between">
-    <a class="navbar-brand" href="/" ><i class="fas fa-ghost"></i>  SEX CT</a>
+  <header> 
     {{#if user}}
-      <a href="/logout"class="navbar-brand">登出 <i class="fas fa-sign-out-alt"></i></a>
-      {{else}}
+      <a class="navbar-brand" href="/" ><i class="fas fa-ghost"></i>  {{user.account}}</a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/index" class="nav-link">抽新關主</a>
+          </li>
+          <li class="nav-item">
+            <a href="/records" class="nav-link">歷史遊戲紀錄</a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout"class="nav-link">登出 <i class="fas fa-sign-out-alt"></i></a>
+          </li>
+        </ul>
+      </nav>
+      
+    {{else}}
       <a href="/signin" class="navbar-brand">登入 <i class="fas fa-sign-in-alt"></i></a>
-      {{/if}}
-  </div>
-</nav>
+    {{/if}}
+  
+  </header>
+
   {{> messages}}
   {{{body}}}
 
