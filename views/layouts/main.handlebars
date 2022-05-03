@@ -14,7 +14,7 @@
 <body>
   <header> 
     {{#if user}}
-      <a class="nav-brand" href="/" ><i class="fas fa-ghost"></i>  {{user.account}}</a>
+      <a class="nav-brand" href="/" ><i class="fas fa-ghost"></i>  {{user.account}}'s</a>
       <input type="checkbox" class="navbar-toggle" id="navbar-toggle">
 
       <nav class="navb">
@@ -35,7 +35,17 @@
         <span class="hamburger"></span>
       </label>
     {{else}}
-      {{!-- <a href="/signin" class="navbar-brand">登入 <i class="fas fa-sign-in-alt"></i></a> --}}
+    <h2 class="nav-brand">Gloomhaven 遊戲紀錄</h2>
+    <nav class="navb">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="/signin" class="nav-link">登入 <i class="fas fa-sign-in-alt"></i></a>
+        </li>
+      </ul>
+    </nav>
+    
+    
+      
     {{/if}}
   
   </header>

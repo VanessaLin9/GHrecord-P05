@@ -190,13 +190,18 @@ padding: 4px;
 color: #dddddd;
 }
 
-.pageList {
+.signin-box {
+ position: relative;
+ top: 80px;
+}
+
+/* .pageList {
   position: relative;
   top: -22px;
   left: -10px;
-}
+} */
 
-.paging {
+/* .paging {
  color: white;
  padding: 10px;
  opacity: 0.5;
@@ -215,7 +220,7 @@ color: #dddddd;
   border-right: 1px white solid;
   border-top: 1px white solid;
   border-radius: 10%;
-}
+} */
 
 .bin {
   color: #999999;
