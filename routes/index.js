@@ -4,6 +4,7 @@ const passport = require('../config/passport')
 
 const recordController = require('.././controllers/record_controller')
 const userController = require('../controllers/user_controller')
+const playerController = require('../controllers/player_controller')
 const { authenticated } = require('../middleware/auth')
 const { generalErrorHandler } = require('../middleware/error-handler')
 
@@ -19,6 +20,9 @@ router.get('/logout', userController.logout)
 // 遊戲紀錄分頁
 router.get('/records', authenticated,recordController.getRecordPage)
 router.delete('/records/:id', authenticated, recordController.deleteRecord)
+
+// 玩家資訊分頁
+router.get('/players', authenticated, playerController.getPlayerList)
 
 // 首頁
 router.get('/host', authenticated, recordController.getHomePage)
