@@ -15,6 +15,7 @@ const recordController = {
         attributes: ['id', 'name'],
         raw:true}),
       Record.findAll({
+        where: {accountId: req.user.id},
         attributes: ['id','date', 'createdAt', 'playerId', 'ScenarioId'],
         limit: 3,
         order: [['createdAt', 'DESC']],
@@ -43,7 +44,8 @@ const recordController = {
     return Record.create({
       date: req.body.date,
       PlayerId: req.body.hostId,
-      ScenarioId: req.body.scenarioId, 
+      ScenarioId: req.body.scenarioId,
+      accountId: req.user.id 
     })
     .then((record) =>{
       console.log(record.id)
@@ -61,6 +63,7 @@ const recordController = {
   getRecordPage:  async(req,res) => {
     try {
       await Record.findAll({
+        where: {accountId: req.user.id},
         attributes: ['id','date', 'createdAt', 'playerId', 'ScenarioId'],
         order: [['createdAt', 'DESC']],
         include: [Player, Scenario],
