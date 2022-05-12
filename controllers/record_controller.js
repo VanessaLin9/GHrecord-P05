@@ -8,6 +8,7 @@ const recordController = {
   getHomePage: (req, res, next) => {
     return Promise.all([
       Player.findAll({
+        where: {accountId: req.user.id},
         attributes: ['id', 'name'],
         raw:true}),
       Scenario.findAll({
