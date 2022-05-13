@@ -37,7 +37,8 @@ const recordController = {
     .catch(err=>{ console.log(err)})
   },
   addRecord: (req, res) => {
-    console.log('post!')
+    let userId = req.user.id
+    console.log(userId)
     let participant = req.body.participants
     let participantList = participant.split(',')
     console.log(participantList)
@@ -45,7 +46,7 @@ const recordController = {
       date: req.body.date,
       PlayerId: req.body.hostId,
       ScenarioId: req.body.scenarioId,
-      accountId: req.user.id 
+      AccountId: userId 
     })
     .then((record) =>{
       console.log(record.id)
