@@ -195,36 +195,17 @@ color: #dddddd;
  top: 80px;
 }
 
-/* .pageList {
-  position: relative;
-  top: -22px;
-  left: -10px;
-} */
-
-/* .paging {
- color: white;
- padding: 10px;
- opacity: 0.5;
-}
-.paging:hover {
- color: white;
- text-decoration: none;
-}
-.otherPage:hover {
-  color: #ff6600;
-  opacity: 0.9;
-}
-
-.thisPage {
-  border-left: 1px white solid;
-  border-right: 1px white solid;
-  border-top: 1px white solid;
-  border-radius: 10%;
-} */
-
 .bin {
   color: #999999;
 }
 .bin:hover {
   color: #ff6600;
+}
+
+/* player */
+
+.players-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1.5rem;
 }
