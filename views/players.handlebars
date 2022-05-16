@@ -1,13 +1,13 @@
 <div class="banner"></div>
 <div class="container mt-5">
-  <h3>隊伍玩家:</h3>
+  <h3 class="mb-3">隊伍玩家:</h3>
   <div class="players-wrapper">
     {{#each players}}
       <div class="card">
-        <img src="{{this.avatar}}" alt="">
+        <img src="{{this.avatar}}" alt="" class="card-img">
         <div class="card-text">
-          <h3>{{this.name}}</h3>
-          <p>{{this.character}}</p>
+          <h3 class="card-title">{{this.name}}</h3>
+          <p class="card-description">{{this.character}}</p>
         </div>
       </div>
     {{/each}}
