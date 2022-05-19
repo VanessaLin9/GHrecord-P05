@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Player.belongsTo(models.Account)
       Player.hasMany(models.Record, { foreignKey: 'PlayerId' })
+      Player.hasMany(models.character)
       // many to many
       Player.belongsToMany(models.Record, {
         through: models.Participant,
