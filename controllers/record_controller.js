@@ -19,7 +19,7 @@ const recordController = {
         attributes: ['id','date', 'createdAt', 'playerId', 'ScenarioId'],
         limit: 3,
         order: [['createdAt', 'DESC']],
-        include: [Player, Scenario],
+        include: [{model:Player, attributes:['id', 'name']}, Scenario],
         raw:true, nest:true
       })
     ])
@@ -67,7 +67,7 @@ const recordController = {
         where: {accountId: req.user.id},
         attributes: ['id','date', 'createdAt', 'playerId', 'ScenarioId'],
         order: [['createdAt', 'DESC']],
-        include: [Player, Scenario],
+        include: [{model:Player, attributes:['id', 'name']}, Scenario],
         raw:true, nest:true
       })
       .then(records => {
