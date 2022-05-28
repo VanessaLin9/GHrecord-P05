@@ -248,6 +248,19 @@ color: #dddddd;
 .card-description {
   font-size: 1rem;
 }
+.edit-link {
+  position: absolute;
+  z-index: 999;
+  top: 80%;
+  left: 50%;
+  display: none;
+  transform: translate(-50%, -50%);
+  padding-top: 12px;
+  color: #ffffff;
+}
+.player-card:hover .edit-link{
+  display: block;
+}
 .player-card::before, .player-card::after {
   content: "";
   position:absolute;

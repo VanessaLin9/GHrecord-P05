@@ -1,0 +1,13 @@
+<div class="banner"></div>
+<div class="container mt-3">
+  <h3 class="mb-3">{{player.name}}</h3>
+  <form action="#" class="form-inline">
+    <label for="characterId">character: </label>
+    <select class="custom-select ml-2" name="characterId" id="characterId">
+      {{#each characters}}
+      <option value="{{this.id}}" >{{this.name}}</option>
+      {{/each}}
+    </select>
+  </form>
+  <a href="/players">回上一頁</a>
+</div>

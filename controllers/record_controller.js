@@ -36,13 +36,14 @@ const recordController = {
     })
     .catch(err=>{ console.log(err)})
   },
-  addRecord: (req, res) => {
+  addRecord: async(req, res) => {
     let userId = req.user.id
     console.log(userId)
     let participant = req.body.participants
     let participantList = participant.split(',')
     console.log(participantList)
-    return Record.create({
+    try {
+      Record.create({
       date: req.body.date,
       PlayerId: req.body.hostId,
       ScenarioId: req.body.scenarioId,
@@ -57,10 +58,10 @@ const recordController = {
       return Participant.bulkCreate(newList)
     })
     .then(res.redirect('/host'))
-    .catch(err => {
-      console.log(err)
-    }) 
-  },
+    } catch (error) {
+      console.log(error)
+      res.render('record', { Error })
+    }},
   getRecordPage:  async(req,res) => {
     try {
       await Record.findAll({

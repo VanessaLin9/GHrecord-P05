@@ -22,6 +22,7 @@ router.get('/records', authenticated,recordController.getRecordPage)
 router.delete('/records/:id', authenticated, recordController.deleteRecord)
 
 // 玩家資訊分頁
+router.get('/players/:id/edit', authenticated, playerController.editPlayer)
 router.get('/players', authenticated, playerController.getPlayerList)
 
 // 首頁
