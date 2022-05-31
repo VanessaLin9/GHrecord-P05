@@ -1,14 +1,33 @@
 <div class="banner"></div>
 <div class="container mt-3">
-  <h3 class="mb-3">{{player.name}}</h3>
-  <form action="/players/{{player.id}}/edit" method="post" class="form-inline">
-    <label for="characterId">character: </label>
-    <select class="custom-select ml-2" name="characterId" id="characterId">
-      {{#each characters}}
-      <option value="{{this.id}}" >{{this.name}}</option>
-      {{/each}}
-    </select>
-    <button type="submit">submit</button>
-  </form>
-  <a href="/players">回上一頁</a>
+
+  <div class="player-edit-form mt-5">
+    <form action="/players/{{player.id}}/edit" method="post" >
+
+      <div class="form-group row">
+        <label for="playerName" class="col-sm-2 col-form-label">name: </label>
+        <div class="col-sm-6">
+          <input type="" id="playerName" class="form-control mb-3" value="{{player.name}}"></input>
+        </div>
+      </div>        
+
+      <div class="form-group row">
+        <label for="characterId" class="col-sm-2 col-form-label">character: </label>
+        <div class="col-sm-6">
+          <select class="custom-select"  id="characterId">
+          {{#each characters}}
+            <option value="{{this.id}}" >{{this.name}}</option>
+            {{/each}}
+          </select>
+        </div>    
+      </div>  
+      
+      <div class="submit-btn">
+        <a href="/players">回上一頁</a>
+        <button type="submit" class=" mt-3">submit</button>
+      </div>
+      
+    </form>
+  </div>  
+  
 </div>

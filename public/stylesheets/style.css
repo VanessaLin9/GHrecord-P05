@@ -51,13 +51,7 @@ a:hover {
   color: #fca063;
   text-decoration: none;
 }
-/********* 電腦版樣式 *********/
-@media screen and (min-width: 768px) {
-  .action {
-    font-size: 1.2rem;
-    padding: 0.75rem 2rem;
-  }
-}
+
 /* ******** header *********** */
 header {
   width: 100%;
@@ -133,38 +127,7 @@ header {
   top: 8px;
 }
 
-@media screen and (min-width: 768px){
-  /* header */
-  .navbar-toggle-label {
-    display: none;
-  }
-  .nav-item {
-    margin: 0;
-    opacity: 1;
-  }
-  /* grid */
-  header {
-    display: grid;
-    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
-  }
-  .nav-brand {
-    grid-column: 2 / 3;
-  }
-  .navb {
-    all: unset;
-    grid-column: 3 / 4;
-  } 
-  .nav-list {
-    height: 100%;
-    display: grid;
-    grid-auto-flow: column;
-    align-items:center;
-    justify-content: end;
-    grid-column-gap: 2rem;
-  }
-}
-
-/* ********* body ********** */
+/********** body ***********/
 .banner {
   position: relative;
   z-index: -1;
@@ -202,7 +165,7 @@ color: #dddddd;
   color: #ff6600;
 }
 
-/* player */
+/********* player page **********/
 
 .players-wrapper {
   display: grid;
@@ -285,4 +248,51 @@ color: #dddddd;
 }
 .player-card:hover:before {
   transform: scale(1, 1.05);
+}
+.submit-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+/******** pc *********/
+
+@media screen and (min-width: 768px) {
+
+  .action {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+  }
+  /* header */
+  .navbar-toggle-label {
+    display: none;
+  }
+
+  .nav-item {
+    margin: 0;
+    opacity: 1;
+  }
+
+  /* grid */
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  .nav-brand {
+    grid-column: 2 / 3;
+  }
+
+  .navb {
+    all: unset;
+    grid-column: 3 / 4;
+  }
+
+  .nav-list {
+    height: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: end;
+    grid-column-gap: 2rem;
+  }
 }
