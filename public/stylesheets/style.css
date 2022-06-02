@@ -250,14 +250,16 @@ color: #dddddd;
   transform: scale(1, 1.05);
 }
 .submit-btn {
+  width: 60%;
   display: flex;
+  align-items:flex-end;
   justify-content: space-between;
 }
+
 
 /******** pc *********/
 
 @media screen and (min-width: 768px) {
-
   .action {
     font-size: 1.2rem;
     padding: 0.75rem 2rem;
@@ -294,5 +296,6 @@ color: #dddddd;
     align-items: center;
     justify-content: end;
     grid-column-gap: 2rem;
+    
   }
 }
