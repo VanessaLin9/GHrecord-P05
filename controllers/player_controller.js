@@ -39,10 +39,11 @@ const playerController = {
        console.log(err)
      })
   },
-  postEditPlayer: async(req, res, next) => {
+  postEditPlayer: async(req, res) => {
     let id = req.params.id
-    let { characterId } = req.body
+    let { characterId, playerName } = req.body
     console.log("id=", id)
+    console.log(req.body)
     try {
       await Player.findByPk(id, {
         attributes: ['id', 'name', 'character_id'],
@@ -53,17 +54,18 @@ const playerController = {
           console.log('error: !player')
           return redirect ('players')
         }
+        console.log(characterId)
         return player.update({
+          name: playerName,
           character_id: characterId
         })
+       
       })
       .then (()=> {
-         req.flash('success_messages', 'restaurant was successfully to update')
          res.redirect ('/players')
       })
     } catch (error){
       console.log(error)
-      res.render('index', {error})
     } 
   }
 }
