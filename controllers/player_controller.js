@@ -67,6 +67,35 @@ const playerController = {
     } catch (error){
       console.log(error)
     } 
+  },
+  addPlayerPage: (req, res) => {
+    Character.findAll({
+      attributes: ["id", "name"],
+      raw: true, nest: true
+    })
+    .then (characters => {
+      return res.render ('addPlayer', {characters})
+    }) 
+  },
+  postAddPlayer: async(req, res) => {
+    let userId = req.user.id
+    let { characterId, playerName } = req.body
+    try {
+      await Player.findOrCreate({
+        attributes: ['id', 'name', 'character_id', 'AccountId'],
+        where: {
+          name: playerName,
+          character_id: characterId,
+          AccountId: userId
+        }
+      })
+      .then(() => {
+        return res.redirect('/players')
+      })
+    } catch (error) {
+      console.log(error)
+      res.render('/index', { Error })
+    }
   }
 }
 module.exports= playerController
