@@ -11,14 +11,14 @@ const userController = {
     Account.findOne({ where: { account: req.body.account } })
       .then(user => {
         if (user) throw new Error('Account already exists!') 
-        return bcrypt.hash(req.body.password, 10) // 前面加 return
+        return bcrypt.hash(req.body.password, 10) 
       })
       .then(hash => Account.create({  //上面錯誤狀況都沒發生，就把使用者的資料寫入資料庫
         account: req.body.account,
         password: hash
       }))
       .then(() => {
-        req.flash('success_messages', '成功註冊帳號！') //並顯示成功訊息
+        req.flash('success_messages', '成功註冊帳號！') 
         res.redirect('/signin')
       })
   },
