@@ -187,6 +187,8 @@ color: #dddddd;
  height: 300px;
  display: block;
  object-fit: cover;
+ object-position: 0 -20px;
+ aspect-ratio: 1/1;
 }
 .card-text {
   position:absolute;
@@ -274,6 +276,7 @@ color: #dddddd;
   align-items:center;
   justify-content: center;
 }
+
 .add-btn::before {
   display:none;
   text-align: center;

@@ -13,7 +13,7 @@ https://lychee-sundae-44700.herokuapp.com/host
 ```
 
 ---
-##### 本程式使用以下:
+##### 本專案使用以下:
 ```
 Express
 MySQL|sequelize
