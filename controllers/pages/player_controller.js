@@ -1,4 +1,4 @@
-const db = require('../models')
+const db = require('../../models')
 const Player = db.Player
 const Character = db.Character
 
