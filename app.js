@@ -2,7 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const flash = require('connect-flash')
 const session = require('express-session')
-const { pages } = require('./routes')
+const { pages, apis } = require('./routes')
 const app = express()
 const methodOverride = require('method-override')
 const passport = require('./config/passport')
@@ -30,6 +30,7 @@ app.use((req, res, next) => {
   res.locals.user = getUser(req)
   next()
 })
+app.use('/apis', apis)
 app.use(pages)
 
 app.listen(PORT, ()=> {
