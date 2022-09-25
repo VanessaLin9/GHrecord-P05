@@ -41,7 +41,7 @@ const recordController = {
     console.log(userId)
     let participant = req.body.participants
     let participantList = participant.split(',')
-    console.log(participantList)
+    // console.log(participantList)
     try {
       Record.create({
       date: req.body.date,
@@ -50,7 +50,7 @@ const recordController = {
       AccountId: userId 
     })
     .then((record) =>{
-      console.log(record.id)
+      // console.log(record.id)
       let newList = participantList.map(participant=> ({
         player_id: participant,
         record_id: record.id
@@ -133,7 +133,7 @@ const recordController = {
     } catch (err){console.log(err)}
   },
   deleteRecord: (req, res) => {
-    console.log(req.params.id)
+    // console.log(req.params.id)
     return Record.findByPk(req.params.id)
     .then((record) => {
       record.destroy()

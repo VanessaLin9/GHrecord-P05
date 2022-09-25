@@ -164,7 +164,29 @@ color: #dddddd;
 .bin:hover {
   color: #ff6600;
 }
+.container {
+  position: relative;
+}
+.container .deleBtn {
+  position: fixed;
+  right: 0;
+  top: 370px;
+  margin-right: 100px;
+  padding: 10px;
+  background: #f9ac98;
+  color:#fff;
+  border-radius: 25px;
+}
+.deleBtn .fas {
+  color:#ffffff
+}
+.container .deleBtn:hover {
 
+  background-color: #fca063;
+}
+.deleBtn:hover .fas {
+  color:crimson;
+}
 /********* player page **********/
 
 .players-wrapper {

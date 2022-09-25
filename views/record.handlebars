@@ -14,7 +14,7 @@
               <th scope="col" class="text-center">關主</th>
               {{!-- <th scope="col">參與者</th> --}}
               <th scope="col" class="text-center">修改紀錄</th>
-              <th scope="col" class="text-center">刪除紀錄</th>
+              {{!-- <th scope="col" class="text-center">刪除紀錄</th> --}}
             </tr>
           </thead>
           <tbody>
@@ -24,7 +24,7 @@
               <td>{{this.scenarioName}}</td>
               <td class="text-center">{{this.hostName}}</td>
               <td class="text-center"><a href="/records/edit/{{this.id}}"><i class="fas fa-pen bin"></i></a></td>
-              <td class="text-center"><form action="/records/{{this.id}}?_method=DELETE" method="POST"><button type="submit" class="btn btn-link"><i class="fas fa-trash-alt bin"></i></button></form></td>
+              
             </tr>
           {{/each}}
           </tbody>
