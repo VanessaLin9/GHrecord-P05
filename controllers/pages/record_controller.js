@@ -109,6 +109,29 @@ const recordController = {
        console.log(err)
      })
   },
+  postEditRecord: async(req, res) => {
+     let id = req.params.id
+     let {scenariosId, hostId} = req.body
+    try {
+      await Record.findByPk(id, {
+        attributes: ['id', 'date', 'playerId', 'ScenarioId']
+      })
+      .then ((record) => {
+        if(!record) {
+          console.log('error: record error')
+          return redirect('records')
+        }
+        return record.update({
+          ...record,
+          PlayerId: hostId,
+          ScenarioId: scenariosId
+        })
+      })
+      .then (()=> {
+        res.redirect('/records')
+      })
+    } catch (err){console.log(err)}
+  },
   deleteRecord: (req, res) => {
     console.log(req.params.id)
     return Record.findByPk(req.params.id)

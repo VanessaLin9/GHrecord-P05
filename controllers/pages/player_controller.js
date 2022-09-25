@@ -42,8 +42,8 @@ const playerController = {
   postEditPlayer: async(req, res) => {
     let id = req.params.id
     let { characterId, playerName } = req.body
-    console.log("id=", id)
-    console.log(req.body)
+    // console.log("id=", id)
+    // console.log(req.body)
     try {
       await Player.findByPk(id, {
         attributes: ['id', 'name', 'character_id'],

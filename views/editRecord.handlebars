@@ -1,7 +1,7 @@
 <div class="banner"></div>
 <div class="container mt-3">
 
-<form action="" method="post">
+<form action="/records/edit/{{record.id}}?_method=PUT" method="post">
 
   <div class="form-group row">
     <label for="playerName" class="col-sm-2 col-form-label">日期: </label>
@@ -13,7 +13,7 @@
   <div class="form-group row">
     <label for="playerName" class="col-sm-2 col-form-label">關卡: </label>
     <div class="col-sm-6">
-      <select type="text">
+      <select type="text" id="scenariosId" name="scenariosId">
         {{#each scenarios}}
         <option value="{{this.id}}"
          {{#ifCond this.id ../record.ScenarioId}}
@@ -28,7 +28,7 @@
   <div class="form-group row">
     <label for="playerName" class="col-sm-2 col-form-label">關主: </label>
     <div class="col-sm-6">
-      <select type="text">
+      <select type="text" id="hostId" name="hostId">
         {{#each player}}
         <option value="{{this.id}}"
           {{#ifCond this.id ../record.playerId}}
