@@ -8,5 +8,9 @@ module.exports = {
   },
   date: function(a) {
     return moment(a).format('L')
+  },
+
+  ifCond: function(a, b, options) {
+    return a===b? options.fn(this) : options.inverse(this)
   }
 }

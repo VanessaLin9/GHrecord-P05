@@ -85,6 +85,30 @@ const recordController = {
       res.render('record', { Error })
     }
   },
+  getEditRecord: (req, res) => {
+    let id = req.params.id
+    return Promise.all([
+      Record.findByPk(id, {
+        attributes: ['id','date', 'createdAt', 'playerId', 'ScenarioId'],
+        include: [{model:Player, attributes:['id', 'name']}, {model:Scenario, attributes:['id', 'name']}],
+        raw:true, nest: true
+      }),
+      Player.findAll({
+        attributes: ['id', 'name'],
+        raw:true, nest: true
+      }),
+      Scenario.findAll({
+        attributes: ['id', 'name'],
+        raw:true, nest: true
+       })
+    ])
+    .then(([record, player, scenarios]) => {
+      return res.render('editRecord',{record, player, scenarios })
+    })
+    .catch(err => {
+       console.log(err)
+     })
+  },
   deleteRecord: (req, res) => {
     console.log(req.params.id)
     return Record.findByPk(req.params.id)

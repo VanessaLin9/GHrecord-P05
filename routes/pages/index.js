@@ -19,6 +19,7 @@ router.get('/logout', userController.logout)
 
 // 遊戲紀錄分頁
 router.get('/records', authenticated,recordController.getRecordPage)
+router.get('/records/edit/:id', authenticated, recordController.getEditRecord)
 router.delete('/records/:id', authenticated, recordController.deleteRecord)
 
 // 玩家資訊分頁
